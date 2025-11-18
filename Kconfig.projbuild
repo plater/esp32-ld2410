@@ -1,0 +1,61 @@
+menu "Driver LD2410 presence sensor"
+      
+      orsource "$IDF_PATH/examples/common_components/env_caps/$IDF_TARGET/Kconfig.env_caps"
+            
+      config LD2410_UART_PORT_NUM
+            int "UART port number"
+            range 0 2 if IDF_TARGET_ESP32 || IDF_TARGET_ESP32S3
+            default 2 if IDF_TARGET_ESP32 || IDF_TARGET_ESP32S3
+            range 0 1
+            default 1
+            help
+                  UART communication port number for the LD2410.
+                  See UART documentation for available port numbers.
+
+      config LD2410_UART_TX
+            int "LD2410 TX pin number"
+            range ENV_GPIO_RANGE_MIN ENV_GPIO_OUT_RANGE_MAX
+            default 13
+            help
+                  ESP GPIO number for LD2410 TX pin. See UART documentation for more information
+                  about available pin numbers for UART.
+
+      config LD2410_UART_RX
+            int "LD2410 RX pin number"
+            range ENV_GPIO_RANGE_MIN ENV_GPIO_OUT_RANGE_MAX
+            default 14
+            help
+                  ESP GPIO number for LD2410 RX pin. See UART documentation for more information
+                  about available pin numbers for UART.
+
+      config LD2410_UART_BAUD_RATE
+            int "LD2410 Baud Rate"
+            range 1200 256000
+            default 256000
+            help
+                  UART communication speed for LD2410 example. Can be changed by changing parameters
+                  to the LD2410.
+
+      config LD2410_OUT_PIN_CONNECTED
+            bool "LD2410 OUT pin connected"
+            default false
+            help
+                  Enables the management of the LD2410 OUT pin if connected to the board.
+                  Can be useful to setup interrupts or have the LD2410 work as a wake source from sleep.
+
+      config LD2410_OUT_PIN_TASK_STACK_SIZE
+        int "LD2410 out pin handler task stack size"
+        range 1024 16384
+        default 2048
+        help
+            Defines stack size for the LD2410 task that handles the changes on the OUT pin. 
+            Insufficient stack size can cause crash.
+            It does not affect anything if "LD2410 OUT pin connected" is false
+
+      config LD2410_ENABLE_DEBUG
+            bool "LD2410 Enable Debug"
+            default false
+            help
+                  Enable debug logs for the LD2410 component.
+  
+endmenu
