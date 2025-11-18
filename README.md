@@ -1,5 +1,7 @@
 # LD2410B/C ESP-IDF Component
 
+Copied from https://github.com/CosmaVergari/esp32-ld2410 which fails to install
+
 This component eases the connection, configuration and use of the LD2410B/C presence sensor.
 Most of the code is a ESP32 port of the [LD2410 Arduino library](https://github.com/iavorvel/MyLD2410).
 
@@ -12,7 +14,7 @@ Note: this library has been tested only on the ESP32-H2 dev board. Also not all 
 Add this component to an esp-idf project with the following command:
 
 ```bash
-idf.py add-dependency "cosmavergari/ld2410"
+idf.py add-dependency "plater/ld2410"
 ```
 
 ### Setup the Hardware
