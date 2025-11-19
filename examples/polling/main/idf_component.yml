@@ -1,6 +1,7 @@
 ## IDF Component Manager Manifest File
 dependencies:
-    cosmavergari/ld2410: "~0.0.2"
+  plater/ld2410: ~0.0.2
     ## Required IDF version
-    idf:
-        version: ">=5.0.0"
+  idf:
+    version: '>=5.0.0'
+  plater/esp32-ld2410-main: ^0.0.2
