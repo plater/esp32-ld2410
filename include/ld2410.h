@@ -1,6 +1,9 @@
+
 #pragma once
 
 #include <stdbool.h>
+#include <stdint.h>
+#include <stdarg.h>
 
 #define LD2410_LATEST_FIRMWARE "2.44"
 #define LD2410_BUFFER_SIZE 0x40
